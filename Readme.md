@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Анна Тарасова](https://up.htmlacademy.ru/javascript/28/user/2186615).
-* Наставник: `Артем Макаров`.
+* Наставник: [Артем Макаров](https://htmlacademy.ru/profile/deepsick).
 
 ---
 
