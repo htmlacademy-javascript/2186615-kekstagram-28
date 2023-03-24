@@ -43,6 +43,7 @@ function generateComments() {
   return comments;
 }
 
+// eslint-disable-next-line no-unused-vars
 function generatePhotos() {
   const photos = [];
 
