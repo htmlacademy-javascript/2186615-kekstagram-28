@@ -58,5 +58,3 @@ function generatePhotos() {
 
   return photos;
 }
-
-console.log(generatePhotos());
