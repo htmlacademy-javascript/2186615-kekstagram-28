@@ -1,8 +1,8 @@
-function checkLength(text, maxLength) {
+export function checkLength(text, maxLength) {
   return text.length <= maxLength;
 }
 
-function isPalindrom(text) {
+export function isPalindrom(text) {
   let textWithoutSpaces = '';
 
   for (let i = 0; i < text.length; i++) {
@@ -27,7 +27,7 @@ function isPalindrom(text) {
   return true;
 }
 
-function fetchDigits(text) {
+export function fetchDigits(text) {
   let digits = '';
 
   for (let i = 0; i < text.length; i++) {
@@ -39,7 +39,7 @@ function fetchDigits(text) {
   return parseInt(digits, 10);
 }
 
-function addSymbols(text, minLength, symbols) {
+export function addSymbols(text, minLength, symbols) {
   if (text.length > minLength) {
     return text;
   }
