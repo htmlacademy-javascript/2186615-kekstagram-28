@@ -1,6 +1,18 @@
 import { getRandomNumber } from './random.js';
 import { generateComments } from './comments.js';
 
+export function createMiniatures() {
+  const photos = generatePhotos();
+  const picturesContainer = document.querySelector('.pictures');
+  const fragment = document.createDocumentFragment();
+
+  photos.forEach((photo) => {
+    const pictureElement = createPicture(photo);
+    fragment.appendChild(pictureElement);
+  });
+
+  picturesContainer.appendChild(fragment);
+}
 // eslint-disable-next-line no-unused-vars
 export function generatePhotos() {
   const photos = [];
