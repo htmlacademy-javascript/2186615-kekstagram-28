@@ -1,3 +1,12 @@
-import { generatePhotos } from './photos.js';
+import { generatePhotos, createPicture } from './photos.js';
 
-generatePhotos();
+const photos = generatePhotos();
+const picturesContainer = document.querySelector('.pictures');
+const fragment = document.createDocumentFragment();
+
+photos.forEach((photo) => {
+  const pictureElement = createPicture(photo);
+  fragment.appendChild(pictureElement);
+});
+
+picturesContainer.appendChild(fragment);

@@ -17,3 +17,17 @@ export function generatePhotos() {
 
   return photos;
 }
+
+export function createPicture(photo) {
+  const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+  const pictureElement = pictureTemplate.cloneNode(true);
+  const pictureImgElement = pictureElement.querySelector('.picture__img');
+  const pictureLikesElement = pictureElement.querySelector('.picture__likes');
+  const pictureCommentsElement = pictureElement.querySelector('.picture__comments');
+
+  pictureImgElement.src = photo.url;
+  pictureLikesElement.textContent = photo.likes;
+  pictureCommentsElement.textContent = photo.comments.length;
+
+  return pictureElement;
+}
