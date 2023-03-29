@@ -2,7 +2,7 @@ import { getRandomNumber } from './random.js';
 import { generateComments } from './comments.js';
 import { openBigPicture } from './big-picture.js';
 
-export function createMiniatures() {
+export function createPreviews() {
   const photos = generatePhotos();
   const picturesContainer = document.querySelector('.pictures');
   const fragment = document.createDocumentFragment();

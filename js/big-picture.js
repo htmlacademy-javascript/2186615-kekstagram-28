@@ -1,3 +1,32 @@
+import { escapeKey } from './consts.js';
+
+// закрытие окна по нажатию клавиши Esc
+const onDocumentKeyDown = (evt) => {
+  if (evt.key === escapeKey) {
+    closeBigPicture();
+  }
+};
+
+// закрытие окна по клику на иконку закрытия
+const onCloseButtonClick = () => {
+  closeBigPicture();
+};
+
+export function closeBigPicture () {
+  const bigPictureElement = document.querySelector('.big-picture');
+  const closeButtonElement = bigPictureElement.querySelector('.big-picture__cancel');
+
+  // удаляем класс modal-open у тега <body>
+  document.body.classList.remove('modal-open');
+
+  // закрываем окно
+  bigPictureElement.classList.add('hidden');
+
+  // удаляем обработчики событий
+  document.removeEventListener('keydown', onDocumentKeyDown);
+  closeButtonElement.removeEventListener('click', onCloseButtonClick);
+}
+
 export function openBigPicture(photo) {
   const bigPictureElement = document.querySelector('.big-picture');
   const bigPictureImgElement = bigPictureElement.querySelector('.big-picture__img img');
@@ -18,7 +47,7 @@ export function openBigPicture(photo) {
   socialCommentsElement.innerHTML = '';
 
   // добавляем новые комментарии
-  photo.comments.forEach(comment => {
+  photo.comments.forEach((comment) => {
     const commentElement = document.createElement('li');
     commentElement.classList.add('social__comment');
 
@@ -48,30 +77,6 @@ export function openBigPicture(photo) {
   // показываем окно
   bigPictureElement.classList.remove('hidden');
 
-  // закрытие окна по нажатию клавиши Esc
-  const onDocumentKeyDown = evt => {
-    if (evt.key === 'Escape') {
-      closeBigPicture();
-    }
-  };
   document.addEventListener('keydown', onDocumentKeyDown);
-
-  // закрытие окна по клику на иконку закрытия
-  const onCloseButtonClick = () => {
-    closeBigPicture();
-  };
   closeButtonElement.addEventListener('click', onCloseButtonClick);
-
-  // функция закрытия окна
-  const closeBigPicture = () => {
-    // удаляем класс modal-open у тега <body>
-    document.body.classList.remove('modal-open');
-
-    // закрываем окно
-    bigPictureElement.classList.add('hidden');
-
-    // удаляем обработчики событий
-    document.removeEventListener('keydown', onDocumentKeyDown);
-    closeButtonElement.removeEventListener('click', onCloseButtonClick);
-  };
 }
