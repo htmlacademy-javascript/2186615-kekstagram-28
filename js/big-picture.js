@@ -12,7 +12,7 @@ const onCloseButtonClick = () => {
   closeBigPicture();
 };
 
-export function closeBigPicture () {
+function closeBigPicture () {
   const bigPictureElement = document.querySelector('.big-picture');
   const closeButtonElement = bigPictureElement.querySelector('.big-picture__cancel');
 
