@@ -1,5 +1,6 @@
 import { getRandomNumber } from './random.js';
 import { generateComments } from './comments.js';
+import { openBigPicture } from './big-picture.js';
 
 export function createMiniatures() {
   const photos = generatePhotos();
@@ -8,6 +9,9 @@ export function createMiniatures() {
 
   photos.forEach((photo) => {
     const pictureElement = createPicture(photo);
+    pictureElement.addEventListener('click', () => {
+      openBigPicture(photo);
+    });
     fragment.appendChild(pictureElement);
   });
 
